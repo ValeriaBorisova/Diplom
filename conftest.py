@@ -23,6 +23,8 @@ def pytest_addoption(parser):
 @pytest.fixture()
 def app(request):
     url = request.config.getoption("--url")
+    chrome_options = Options()
+    chrome_options.headless = True
     driver = webdriver.Chrome(ChromeDriverManager().install())
     app = Application(driver, url)
     yield app
