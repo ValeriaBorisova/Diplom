@@ -1,6 +1,6 @@
 from fixtures.pages.basket import Baskets
 from fixtures.pages.choice import Choices
-from fixtures.pages.start import  StartPage
+from fixtures.pages.start import StartPage
 
 
 class Application:
@@ -10,8 +10,6 @@ class Application:
         self.start = StartPage(self)
         self.choice = Choices(self)
         self.basket = Baskets(self)
-
-
 
     def quit(self):
         self.driver.quit()
