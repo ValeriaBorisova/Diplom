@@ -6,3 +6,6 @@ class ChoiceLocators:
                              "'bananas')]/following::div[1]/button")
     APPLES_BUY = (By.XPATH, ".//div/span[@class = 'card-title' and contains(text(), "
                             "'apples')]/following::div[1]/button")
+    BREAD_BUY = (By.XPATH, ".//div/span[@class = 'card-title' and contains(text(), "
+                            "'bread')]/following::div[1]/button")
+

@@ -27,7 +27,14 @@ class TestBaskets:
         3. Open basket
         4. Remove item (decrease qty)
         """
-        pass
+        item = "bananas"
+        app.open_start_page()
+        app.choice.buy_bananas()
+        app.basket.open_basket()
+        app.basket.remove_item()
+        new_price = app.basket.get_item_price(item)
+        assert new_price == 0.0
+
 
     def test_delete(self, app):
         """
@@ -37,7 +44,16 @@ class TestBaskets:
         3. Open basket
         4. Delete item
         """
-        pass
+
+        app.open_start_page()
+        app.choice.buy_bananas()
+        app.basket.open_basket()
+        app.basket.delete()
+        basket_text = app.basket.get_basket_text()
+        cart_title = basket_text[0]
+        assert cart_title == Constans.BASKET
+
+
 
     def test_buy(self, app):
         """
