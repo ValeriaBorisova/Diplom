@@ -26,7 +26,7 @@ def app(request):
     url = request.config.getoption("--url")
     chrome_options = Options()
     chrome_options.headless = True
-    driver = webdriver.Chrome(ChromeDriverManager().install())
+    driver = webdriver.Chrome(ChromeDriverManager().install(), options=chrome_options)
     app = Application(driver, url)
     yield app
     app.quit()
