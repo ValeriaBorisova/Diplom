@@ -5,6 +5,21 @@ from webdriver_manager.chrome import ChromeDriverManager
 from fixtures.pages.application import Application
 
 
+def pytest_addoption(parser):
+    parser.addoption(
+        "--url", 
+        action="store", 
+        default="https://berpress.github.io/online-grocery-store/", 
+        help="Store url"),
+    parser.addoption(
+        "--headless",
+        action="store",
+        default="false",
+        help="enter 'true' if you want run tests in headless mode of browser,\n"
+        "enter 'false' - if not",
+    )
+    
+    
 @pytest.fixture()
 def app(request):
     url = request.config.getoption("--url")
@@ -12,7 +27,3 @@ def app(request):
     app = Application(driver, url)
     yield app
     app.quit()
-
-
-def pytest_addoption(parser):
-    parser.addoption("--url", action="store", default="https://berpress.github.io/online-grocery-store/", help="Moodle url")
